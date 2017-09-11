@@ -19,6 +19,7 @@ total_duration = a["tracks"].map {|each_track| each_track["duration_in_milliseco
 
 
 #### or:
+
 track_duration_array = []
 
 a["tracks"].each { |eachtrack| track_duration_array << eachtrack["duration_in_milliseconds"]}
@@ -26,6 +27,8 @@ a["tracks"].each { |eachtrack| track_duration_array << eachtrack["duration_in_mi
 total_duration_again = track_duration_array.sum
 
 #### Note that these are identical (at least conceptually, i dont know the actual source code of .map).
-#### i.e. This part is pretty much what the .map method does! Makes a new array and does something to elements
-#### of the old array (in this case accessing their "duration_in_milliseconds" value)
-#### and adding the result to the new array
+#### i.e. This part is pretty much what the .map method does!
+#### 1) Makes a new empty array
+#### 2) Does something to elements of what's being iterated over
+####    (in this case accessing their "duration_in_milliseconds" value)
+#### 3) hen adds the result to the new array
