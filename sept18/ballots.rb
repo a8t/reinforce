@@ -9,9 +9,14 @@ ballots = [{1 => 'Smudge', 2 => 'Tigger', 3 => 'Simba'},
 votes = {}
 
 ballots.each do |each_ballot|
-  votes[:"#{each_ballot[1]}"] ? votes[:"#{each_ballot[1]}"] += 3 : votes[:"#{each_ballot[1]}"] = 3
-  votes[:"#{each_ballot[2]}"] ? votes[:"#{each_ballot[2]}"] += 2 : votes[:"#{each_ballot[2]}"] = 2
-  votes[:"#{each_ballot[3]}"] ? votes[:"#{each_ballot[3]}"] += 1 : votes[:"#{each_ballot[3]}"] = 1
+
+  first  = each_ballot[1].to_sym
+  second = each_ballot[2].to_sym
+  third  = each_ballot[3].to_sym
+  
+  votes.has_key?(first) ? votes[first] += 3 : votes[first] = 3
+  votes.has_key?(second) ? votes[second] += 2 : votes[second] = 2
+  votes.has_key?(third) ? votes[third] += 1 : votes[third] = 1
 end
 
 def winner(votes)
